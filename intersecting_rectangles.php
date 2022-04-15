@@ -14,13 +14,22 @@ class Point {
   }
 }
 
-class Rectangle {
-  public $lowerLeft;
-  public $upperRight;
 
+class Rectangle {
+  public $lowerLeft = null;
+  public $upperRight = null;
+
+  /**
+   * @param Point $lowerLeft
+   * @param Point $upperRight
+   */
   public function __construct(Point $lowerLeft, Point $upperRight) {
     $this->lowerLeft = $lowerLeft;
     $this->upperRight = $upperRight;
+  }
+
+  public function print() {
+    print "({$this->lowerLeft->x}, {$this->lowerLeft->y}), ({$this->upperRight->x}, {$this->upperRight->y})\n";
   }
 
   public static function getOverlappingRectangle(Rectangle $r1, Rectangle $r2) {
@@ -44,3 +53,16 @@ class Rectangle {
   }
 }
 
+$r1 = new Rectangle(new Point(1, 5), new Point(10, 10));
+$r2 = new Rectangle(new Point(5, 3), new Point(6, 21));
+
+$r1->print();
+$r2->print();
+
+$rX = Rectangle::getOverlappingRectangle($r1, $r2);
+
+if ($rX != null) {
+  $rX->print();
+} else {
+  print 'no intersection';
+}
