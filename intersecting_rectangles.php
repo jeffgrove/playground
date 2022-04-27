@@ -33,7 +33,6 @@ class Rectangle {
     $this->lowerLeft = $lowerLeft;
     $this->upperRight = $upperRight;
 
-    /** THIS IS THE KEY TOPIC THAT I WANT TO DISCUSS!! */
     // Validate that lower left is less than upper right
     if ($this->lowerLeft->x > $this->upperRight->x || $this->lowerLeft->y > $this->upperRight->y) {
       throw new Exception('Invalid Rectangle!');
@@ -60,6 +59,7 @@ class Rectangle {
     //   A line and a point could be considered valid rectangles in this model
     //   To do that, adjust all the ">" and "<" to ">=" and "<="
 
+    /** THIS IS THE KEY TOPIC THAT I WANT TO DISCUSS!! */
     // There is an overlap if all of the following are true
     return ($r1->lowerLeft->x < $r2->upperRight->x && $r1->upperRight->x > $r2->lowerLeft->x
       && $r1->lowerLeft->y < $r2->upperRight->y && $r1->upperRight->y > $r2->lowerLeft->y) ? 1 : 0;
