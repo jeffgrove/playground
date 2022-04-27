@@ -33,6 +33,7 @@ class Rectangle {
     $this->lowerLeft = $lowerLeft;
     $this->upperRight = $upperRight;
 
+    /** THIS IS THE KEY TOPIC THAT I WANT TO DISCUSS!! */
     // Validate that lower left is less than upper right
     if ($this->lowerLeft->x > $this->upperRight->x || $this->lowerLeft->y > $this->upperRight->y) {
       throw new Exception('Invalid Rectangle!');
