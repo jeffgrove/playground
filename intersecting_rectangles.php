@@ -88,9 +88,9 @@ class Rectangle {
       $upperRight_y = min([$r1->upperRight->y, $r2->upperRight->y]);
 
       // If this is a valid rectangle, it is the overlap rectangle
-      //   A line and a point are valid rectangle subsets in this model BUT
-      //   that is easy to adjust by making the ">=" just a ">"
-      if ($upperRight_x > $lowerLeft_x &&  $upperRight_y >= $lowerLeft_y) {
+      //   A line and a point are not valid rectangle subsets in this model BUT
+      //   that is easy to adjust by making the ">" a ">="
+      if ($upperRight_x > $lowerLeft_x &&  $upperRight_y > $lowerLeft_y) {
         $newRect = new Rectangle(new Point($lowerLeft_x, $lowerLeft_y), new Point($upperRight_x, $upperRight_y));
       }
 
